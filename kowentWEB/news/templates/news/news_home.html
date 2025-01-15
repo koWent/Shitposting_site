@@ -1,0 +1,21 @@
+{% extends 'main/layout.html' %}
+
+{% block title %}Щитпосты{% endblock %}
+
+{% block content %}
+    <div class="features">
+        <h1>Щитпостыgit remote add origin https://github.com/koWent/Shitposting-site.git</h1>
+        {% if news %}
+            {% for el in news%}
+                <div class = "alert alert-warning">
+                    <h3>{{ el.title }}</h3>
+                    <p>{{ el.anons }}</p>
+                    <a href="{% url 'news_detail' el.id %}" class="btn btn-warning">Читать щитпост</a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Новостей нет!</p>
+        {% endif %}
+        {# Писюн #}
+    </div>
+{% endblock %}
